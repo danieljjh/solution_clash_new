@@ -13,5 +13,6 @@ react 的参数：
             "name": "CO32-",
             "amount": "1"
         }
-    ]
+    ],
+    "card": {'name': 'HCl', 'no': 1}
 }]
