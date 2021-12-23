@@ -42,3 +42,12 @@ curPlayer：当前出牌的玩家
 endgame：指出失败的一方
 nxt_turn：进入下一回合
 nxt_player：切换到下一个玩家
+
+
+---
+player: [{
+    score: 0,
+    cards: [],
+    credit: 3,
+    water: 6
+}]
