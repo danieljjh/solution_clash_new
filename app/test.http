@@ -1,4 +1,5 @@
 @host=localhost:8000
+# @host=sc.jiangyq.com/api
 
 
 ### test
@@ -21,11 +22,11 @@ Content-Type: application/json
 
 {
     "score": -1,
-    "water": 7,
+    "water": 6,
     "beaker": [
         
     ],
-    "card": {"name": "CuSO4.5H2O", "no": 1}
+    "card": {"name": "HCl", "no": 1}
 }
 
 ### Endturn

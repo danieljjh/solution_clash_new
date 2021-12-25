@@ -5,21 +5,25 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from sclogic import Player, Beaker
+from cardset import *
 import random
 
-p1comb = ["HCl", "AgCl", "CuSO4.5H2O", "CaCO3",
-          "NaOH", "Ca(OH)2", "BaSO4", "NaCl"]
-c1 = [3,1,4,2,3,5,2,1]
-p2comb = ["HCl", "AgCl", "CuSO4", "CaCO3",
-          "H2S", "Ca(OH)2", "H2SO4", "NH3.H2O"]
-c2 = [3,1,3,2,2,5,5,2]
+# p1comb = ["HCl", "AgCl", "CuSO4.5H2O", "CaCO3",
+#           "NaOH", "Ca(OH)2", "BaSO4", "NaCl"]
+# c1 = [3, 1, 4, 2, 3, 5, 2, 1]
+# p2comb = ["HCl", "AgCl", "CuSO4", "CaCO3",
+#           "H2S", "Ca(OH)2", "H2SO4", "NH3.H2O"]
+# c2 = [3, 1, 3, 2, 2, 5, 5, 2]
 
-def form_card_seq(cardset,cseq):
+
+def form_card_seq():
     cardseq = []
-    seq = random.sample(range(1, 9), 8)
+    seq = random.choices(cardset, k=8)
+    # for i in range(8):
+    #     item_dict = {"name": cardset[i], "no": seq[i], "cost": cseq[i]}
+    #     cardseq.append(item_dict)
     for i in range(8):
-        item_dict = {"name": cardset[i], "no": seq[i], "cost": cseq[i]}
-        cardseq.append(item_dict)
+        cardseq.append(cardset[i])
     return cardseq
 
 
@@ -50,8 +54,8 @@ async def root():
 
 @app.post("/init_cards")
 async def gen_set():
-    p1seq = form_card_seq(p1comb,c1)
-    p2seq = form_card_seq(p2comb,c2)
+    p1seq = form_card_seq()
+    p2seq = form_card_seq()
     return {'cards': [p1seq, p2seq]}
 
 
@@ -85,5 +89,7 @@ async def react(
     return {
         "score": B.cH,
         "water": B.water,
-        "beaker": rIons
+        "beaker": rIons,
+        "displays": B.evalue,
+        "pH": B.pH
     }
