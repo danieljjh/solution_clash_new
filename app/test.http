@@ -1,13 +1,13 @@
-# @host=localhost:8000
-@host = 
+@host=localhost:8000
 
 
 ### test
 GET https://{{host}}/
 
 ### init
-POST http://{{host}}/init
+POST http://{{host}}/init_cards
 Content-Type: application/json
+
 {
     "Player": {
         "id": "1",
@@ -16,15 +16,16 @@ Content-Type: application/json
 }
 
 ###PlaceCard
-POST http://{{host}}/place-card
+POST http://{{host}}/react
 Content-Type: application/json
+
 {
-    "Card": {
-        "Beaker": "2",
-        "CardName": "CuSO4·5H2O",
-        "Player": "2",
-        "Pos": "3"
-    }
+    "score": -1,
+    "water": 7,
+    "beaker": [
+        
+    ],
+    "card": {"name": "CuSO4.5H2O", "no": 1}
 }
 
 ### Endturn

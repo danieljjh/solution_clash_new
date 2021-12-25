@@ -1,4 +1,5 @@
-import numpy as np
+# import numpy as np
+import math
 '''
 item_dict: MX: [deltaH+,H2O,["X-","M+"]]
 '''
@@ -14,7 +15,7 @@ weak_alka = ["CaCO3", "Fe(OH)2"]
 weak_alka_ions = ["Cu2+", "Fe2+"]
 turn_gold = [
     3, 5, 7, 9, 9, 9, 9, 9, 11, 13, 13, 13, 13, 13, 13, 13, 15, 15, 15, 17
-    ]
+]
 
 
 def ion_add(ion, amount, curIons):
@@ -44,8 +45,8 @@ class Beaker():
         self.owner = owner
 
     def ioni(self, item):
-        m = np.abs(item_dict[item][0])
-        if item in weak_alka and item_dict[item][0]+self.cH < 0:
+        m = math.abs(item_dict[item][0])
+        if item in weak_alka and item_dict[item][0] + self.cH < 0:
             for i in item_dict[item][2]:
                 ion_add(i, self.cH, self.Ions)
             self.cH = 0
@@ -66,7 +67,7 @@ class Beaker():
                 ion_add(acid[i], -q, self.Ions)
 
     def check_end(self):
-        if np.abs(self.cH) >= self.water:
+        if math.abs(self.cH) >= self.water:
             Gameplay.endgame(self.owner)
 
 
