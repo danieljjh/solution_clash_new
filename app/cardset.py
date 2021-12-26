@@ -72,7 +72,7 @@ cardset = [{
 },
     {
     "name": "Na2SO3",
-    "cost": 1,
+    "cost": 3,
     "type": "强碱弱酸盐",
     "description": ""
 },

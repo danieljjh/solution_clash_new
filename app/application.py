@@ -19,12 +19,7 @@ import random
 def form_card_seq():
     cardseq = []
     seq = random.choices(cardset, k=8)
-    # for i in range(8):
-    #     item_dict = {"name": cardset[i], "no": seq[i], "cost": cseq[i]}
-    #     cardseq.append(item_dict)
-    for i in range(8):
-        cardseq.append(cardset[i])
-    return cardseq
+    return seq
 
 
 # :在这里建立了API
