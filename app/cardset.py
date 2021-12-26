@@ -36,7 +36,7 @@ cardset = [{
 },
     {
     "name": "H2S",
-    "cost": 3,
+    "cost": 2,
     "type": "二元弱酸",
     "description": "硫的氢化物，剧毒，有臭鸡蛋气味。"
 },

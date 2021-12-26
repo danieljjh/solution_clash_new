@@ -18,7 +18,8 @@ import random
 
 def form_card_seq():
     cardseq = []
-    seq = random.choices(cardset, k=8)
+    # seq = random.choices(cardset, k=8)
+    seq = random.sample(cardset,8)
     return seq
 
 
